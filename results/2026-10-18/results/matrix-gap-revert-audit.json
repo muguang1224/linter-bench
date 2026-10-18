@@ -1,0 +1,155 @@
+{
+  "tool": "matrix-gap",
+  "version": "0.1.0",
+  "schema_version": 1,
+  "root": "../revert-audit",
+  "claims": [
+    {
+      "ecosystem": "python",
+      "kind": "requires-python",
+      "value": ">=3.10,<3.15",
+      "source": "pyproject.toml",
+      "line": 10,
+      "versions": [
+        "3.10",
+        "3.11",
+        "3.12",
+        "3.13",
+        "3.14"
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "kind": "classifier",
+      "value": "Programming Language :: Python :: 3.10",
+      "source": "pyproject.toml",
+      "line": 15,
+      "versions": [
+        "3.10"
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "kind": "classifier",
+      "value": "Programming Language :: Python :: 3.11",
+      "source": "pyproject.toml",
+      "line": 16,
+      "versions": [
+        "3.11"
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "kind": "classifier",
+      "value": "Programming Language :: Python :: 3.12",
+      "source": "pyproject.toml",
+      "line": 17,
+      "versions": [
+        "3.12"
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "kind": "classifier",
+      "value": "Programming Language :: Python :: 3.13",
+      "source": "pyproject.toml",
+      "line": 18,
+      "versions": [
+        "3.13"
+      ]
+    },
+    {
+      "ecosystem": "python",
+      "kind": "classifier",
+      "value": "Programming Language :: Python :: 3.14",
+      "source": "pyproject.toml",
+      "line": 19,
+      "versions": [
+        "3.14"
+      ]
+    }
+  ],
+  "ci": {
+    "jobs": [
+      {
+        "workflow": ".github/workflows/ci.yml",
+        "job": "test",
+        "line": 8,
+        "axes": {
+          "python-version": [
+            "3.10",
+            "3.11",
+            "3.12",
+            "3.13",
+            "3.14"
+          ]
+        },
+        "runs_on": [
+          "ubuntu-latest"
+        ],
+        "dynamic": [],
+        "truncated": false,
+        "notes": []
+      },
+      {
+        "workflow": ".github/workflows/ci.yml",
+        "job": "fixtures",
+        "line": 26,
+        "axes": {},
+        "runs_on": [
+          "ubuntu-latest"
+        ],
+        "dynamic": [],
+        "truncated": false,
+        "notes": []
+      },
+      {
+        "workflow": ".github/workflows/ci.yml",
+        "job": "<scalar:python>",
+        "line": 32,
+        "axes": {
+          "python-version": [
+            "3.13"
+          ]
+        },
+        "runs_on": [],
+        "dynamic": [],
+        "truncated": false,
+        "notes": []
+      }
+    ],
+    "coverage": {
+      "python": {
+        "3.10": [
+          ".github/workflows/ci.yml:test"
+        ],
+        "3.11": [
+          ".github/workflows/ci.yml:test"
+        ],
+        "3.12": [
+          ".github/workflows/ci.yml:test"
+        ],
+        "3.13": [
+          ".github/workflows/ci.yml:test",
+          ".github/workflows/ci.yml:<scalar:python>"
+        ],
+        "3.14": [
+          ".github/workflows/ci.yml:test"
+        ]
+      },
+      "os": {
+        "linux": [
+          ".github/workflows/ci.yml:test",
+          ".github/workflows/ci.yml:fixtures"
+        ]
+      }
+    }
+  },
+  "findings": [],
+  "warnings": [],
+  "summary": {
+    "high": 0,
+    "medium": 0,
+    "low": 0
+  }
+}

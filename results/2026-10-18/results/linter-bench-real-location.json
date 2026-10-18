@@ -1,0 +1,550 @@
+{
+  "tool": "linter-bench",
+  "version": "0.1.0",
+  "schema_version": 1,
+  "corpus": "corpus",
+  "line_tolerance": 1,
+  "cases": [
+    {
+      "id": "dc-clean-covered",
+      "category": "dead-code",
+      "defect": false,
+      "description": "Both functions are used by tests; this must not be flagged.",
+      "labels": []
+    },
+    {
+      "id": "dc-clean-dunder",
+      "category": "dead-code",
+      "defect": false,
+      "description": "Dunder methods are called implicitly and must not be flagged.",
+      "labels": []
+    },
+    {
+      "id": "dc-unused-class",
+      "category": "dead-code",
+      "defect": true,
+      "description": "A class is never referenced.",
+      "labels": [
+        {
+          "file": "app/model.py",
+          "line": 4,
+          "rule": "dead.unused-class",
+          "message": "Orphan is never referenced",
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "dc-unused-function",
+      "category": "dead-code",
+      "defect": true,
+      "description": "A module-level function is never referenced by production code or tests.",
+      "labels": [
+        {
+          "file": "app/core.py",
+          "line": 4,
+          "rule": "dead.unused-function",
+          "message": "helper is never referenced",
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "eh-clean-handled",
+      "category": "error-handling",
+      "defect": false,
+      "description": "The exception is chained into a meaningful error; this must not be flagged.",
+      "labels": []
+    },
+    {
+      "id": "eh-clean-subprocess",
+      "category": "error-handling",
+      "defect": false,
+      "description": "subprocess.run uses check=True; this must not be flagged.",
+      "labels": []
+    },
+    {
+      "id": "eh-except-pass",
+      "category": "error-handling",
+      "defect": true,
+      "description": "An OSError is swallowed by a bare pass.",
+      "labels": [
+        {
+          "file": "app/loader.py",
+          "line": 5,
+          "rule": "error.except-pass",
+          "message": "exception is swallowed",
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "eh-unchecked-subprocess",
+      "category": "error-handling",
+      "defect": true,
+      "description": "subprocess.run is called without check=True.",
+      "labels": [
+        {
+          "file": "app/runner.py",
+          "line": 4,
+          "rule": "error.unchecked-subprocess",
+          "message": "subprocess result is unchecked",
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "sec-clean-env",
+      "category": "security",
+      "defect": false,
+      "description": "The secret comes from the environment; this must not be flagged.",
+      "labels": []
+    },
+    {
+      "id": "sec-clean-log",
+      "category": "security",
+      "defect": false,
+      "description": "A log message mentions a token without containing one; this must not be flagged.",
+      "labels": []
+    },
+    {
+      "id": "sec-hardcoded-password",
+      "category": "security",
+      "defect": true,
+      "description": "Two credentials are hard-coded.",
+      "labels": [
+        {
+          "file": "app/config.py",
+          "line": 1,
+          "rule": "security.hardcoded-secret",
+          "message": "hard-coded DB password",
+          "aliases": []
+        },
+        {
+          "file": "app/config.py",
+          "line": 2,
+          "rule": "security.hardcoded-secret",
+          "message": "hard-coded API key",
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "sec-shell-true",
+      "category": "security",
+      "defect": true,
+      "description": "subprocess.run uses shell=True.",
+      "labels": [
+        {
+          "file": "app/shell.py",
+          "line": 4,
+          "rule": "security.shell-true",
+          "message": "shell=True",
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "tq-clean-mock",
+      "category": "test-quality",
+      "defect": false,
+      "description": "A mock assertion counts as an assertion; this must not be flagged.",
+      "labels": []
+    },
+    {
+      "id": "tq-constant-assert",
+      "category": "test-quality",
+      "defect": true,
+      "description": "An assertion on a constant can never fail.",
+      "labels": [
+        {
+          "file": "tests/test_flags.py",
+          "line": 2,
+          "rule": "test.constant-assert",
+          "message": "assert True",
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "tq-dead-assert",
+      "category": "test-quality",
+      "defect": true,
+      "description": "An assertion after return is never executed.",
+      "labels": [
+        {
+          "file": "tests/test_dead.py",
+          "line": 3,
+          "rule": "test.dead-assert",
+          "message": "assert after return",
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "tq-no-assert",
+      "category": "test-quality",
+      "defect": true,
+      "description": "A test calls production code but never asserts anything.",
+      "labels": [
+        {
+          "file": "tests/test_calc.py",
+          "line": 3,
+          "rule": "test.no-assert",
+          "message": "test has no assertion",
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "tq-overbroad-except",
+      "category": "test-quality",
+      "defect": true,
+      "description": "A test catches every exception, including assertion failures.",
+      "labels": [
+        {
+          "file": "tests/test_overbroad.py",
+          "line": 7,
+          "rule": "test.overbroad-except",
+          "message": "except Exception in a test",
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "tq-self-compare",
+      "category": "test-quality",
+      "defect": true,
+      "description": "A value is compared with itself.",
+      "labels": [
+        {
+          "file": "tests/test_math.py",
+          "line": 3,
+          "rule": "test.self-compare",
+          "message": "value == value",
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "tq-skip-no-reason",
+      "category": "test-quality",
+      "defect": true,
+      "description": "A test is skipped without a reason.",
+      "labels": [
+        {
+          "file": "tests/test_skip.py",
+          "line": 4,
+          "rule": "test.skip-no-reason",
+          "message": "unittest.skip without a reason",
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "tq-swallowed-assert",
+      "category": "test-quality",
+      "defect": true,
+      "description": "An AssertionError is caught and discarded by the test itself.",
+      "labels": [
+        {
+          "file": "tests/test_swallow.py",
+          "line": 3,
+          "rule": "test.swallowed-assert",
+          "message": "assertion is swallowed",
+          "aliases": []
+        }
+      ]
+    }
+  ],
+  "tools": [
+    {
+      "name": "ruff",
+      "adapter": "ruff",
+      "match": "location",
+      "categories": [
+        "dead-code",
+        "error-handling",
+        "security"
+      ],
+      "tp": 3,
+      "fp": 1,
+      "fn": 4,
+      "precision": 0.75,
+      "recall": 0.42857142857142855,
+      "f1": 0.5454545454545454,
+      "crashes": 0,
+      "duration": 1.57,
+      "results": [
+        {
+          "case": "dc-clean-covered",
+          "category": "dead-code",
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "error": "",
+          "duration": 0.016,
+          "findings": []
+        },
+        {
+          "case": "dc-clean-dunder",
+          "category": "dead-code",
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "error": "",
+          "duration": 0.016,
+          "findings": []
+        },
+        {
+          "case": "dc-unused-class",
+          "category": "dead-code",
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "error": "",
+          "duration": 0.016,
+          "findings": []
+        },
+        {
+          "case": "dc-unused-function",
+          "category": "dead-code",
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "error": "",
+          "duration": 0.016,
+          "findings": []
+        },
+        {
+          "case": "eh-clean-handled",
+          "category": "error-handling",
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "error": "",
+          "duration": 0.015,
+          "findings": []
+        },
+        {
+          "case": "eh-clean-subprocess",
+          "category": "error-handling",
+          "tp": 0,
+          "fp": 1,
+          "fn": 0,
+          "error": "",
+          "duration": 0.016,
+          "findings": [
+            {
+              "file": "app/runner.py",
+              "line": 4,
+              "rule": "S603",
+              "message": "`subprocess` call: check for execution of untrusted input",
+              "severity": ""
+            }
+          ]
+        },
+        {
+          "case": "eh-except-pass",
+          "category": "error-handling",
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "error": "",
+          "duration": 0.015,
+          "findings": []
+        },
+        {
+          "case": "eh-unchecked-subprocess",
+          "category": "error-handling",
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "error": "",
+          "duration": 0.016,
+          "findings": [
+            {
+              "file": "app/runner.py",
+              "line": 4,
+              "rule": "S603",
+              "message": "`subprocess` call: check for execution of untrusted input",
+              "severity": ""
+            }
+          ]
+        },
+        {
+          "case": "sec-clean-env",
+          "category": "security",
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "error": "",
+          "duration": 0.015,
+          "findings": []
+        },
+        {
+          "case": "sec-clean-log",
+          "category": "security",
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "error": "",
+          "duration": 0.015,
+          "findings": []
+        },
+        {
+          "case": "sec-hardcoded-password",
+          "category": "security",
+          "tp": 1,
+          "fp": 0,
+          "fn": 1,
+          "error": "",
+          "duration": 0.016,
+          "findings": [
+            {
+              "file": "app/config.py",
+              "line": 1,
+              "rule": "S105",
+              "message": "Possible hardcoded password assigned to: \"DB_PASSWORD\"",
+              "severity": ""
+            }
+          ]
+        },
+        {
+          "case": "sec-shell-true",
+          "category": "security",
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "error": "",
+          "duration": 0.015,
+          "findings": [
+            {
+              "file": "app/shell.py",
+              "line": 4,
+              "rule": "S602",
+              "message": "`subprocess` call with `shell=True` identified, security issue",
+              "severity": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "bandit",
+      "adapter": "bandit",
+      "match": "location",
+      "categories": [
+        "security",
+        "error-handling"
+      ],
+      "tp": 2,
+      "fp": 0,
+      "fn": 3,
+      "precision": 1.0,
+      "recall": 0.4,
+      "f1": 0.5714285714285715,
+      "crashes": 0,
+      "duration": 1.623,
+      "results": [
+        {
+          "case": "eh-clean-handled",
+          "category": "error-handling",
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "error": "",
+          "duration": 0.085,
+          "findings": []
+        },
+        {
+          "case": "eh-clean-subprocess",
+          "category": "error-handling",
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "error": "",
+          "duration": 0.087,
+          "findings": []
+        },
+        {
+          "case": "eh-except-pass",
+          "category": "error-handling",
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "error": "",
+          "duration": 0.085,
+          "findings": []
+        },
+        {
+          "case": "eh-unchecked-subprocess",
+          "category": "error-handling",
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "error": "",
+          "duration": 0.087,
+          "findings": []
+        },
+        {
+          "case": "sec-clean-env",
+          "category": "security",
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "error": "",
+          "duration": 0.085,
+          "findings": []
+        },
+        {
+          "case": "sec-clean-log",
+          "category": "security",
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "error": "",
+          "duration": 0.081,
+          "findings": []
+        },
+        {
+          "case": "sec-hardcoded-password",
+          "category": "security",
+          "tp": 1,
+          "fp": 0,
+          "fn": 1,
+          "error": "",
+          "duration": 0.082,
+          "findings": [
+            {
+              "file": "app/config.py",
+              "line": 1,
+              "rule": "B105",
+              "message": "Possible hardcoded password: 'hunter2'",
+              "severity": "LOW"
+            }
+          ]
+        },
+        {
+          "case": "sec-shell-true",
+          "category": "security",
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "error": "",
+          "duration": 0.085,
+          "findings": [
+            {
+              "file": "app/shell.py",
+              "line": 4,
+              "rule": "B602",
+              "message": "subprocess call with shell=True identified, security issue.",
+              "severity": "HIGH"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "warnings": []
+}

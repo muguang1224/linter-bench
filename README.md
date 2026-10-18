@@ -139,6 +139,24 @@ python3 linter_bench.py --tools tools.controls.json --markdown
 
 Exit codes: `0` report, `1` `--fail-under-recall` / `--fail-under-precision` missed (or invalid corpus), `2` configuration/tool error.
 
+## Real-tool results (2026-10-18)
+
+The repository includes a dated evidence pack from running real tools on this
+corpus (ruff 0.17.1, bandit 1.9.4, Python 3.10.12), plus the controls:
+
+| Tool | Matching | Cases | TP | FP | FN | Precision | Recall | F1 |
+|---|---|---:|---:|---:|---:|---:|---:|---:|
+| reference | rule | 20 | 14 | 0 | 0 | 100.0% | 100.0% | 100.0% |
+| naive | location | 8 | 4 | 3 | 3 | 57.1% | 57.1% | 57.1% |
+| ruff | location | 12 | 3 | 1 | 4 | 75.0% | 42.9% | 54.5% |
+| bandit | location | 8 | 2 | 0 | 3 | 100.0% | 40.0% | 57.1% |
+| ruff | rule | 12 | 2 | 2 | 5 | 50.0% | 28.6% | 36.4% |
+| bandit | rule | 8 | 2 | 0 | 3 | 100.0% | 40.0% | 57.1% |
+
+The location-vs-rule difference is explained in
+[the write-up](results/2026-10-18/ARTICLE.md); raw JSON and configs are in the
+same directory.
+
 ## Tests
 
 ```bash
