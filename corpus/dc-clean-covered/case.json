@@ -1,0 +1,7 @@
+{
+  "id": "dc-clean-covered",
+  "category": "dead-code",
+  "defect": false,
+  "description": "Both functions are used by tests; this must not be flagged.",
+  "labels": []
+}

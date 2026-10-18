@@ -1,0 +1,14 @@
+{
+  "id": "eh-unchecked-subprocess",
+  "category": "error-handling",
+  "defect": true,
+  "description": "subprocess.run is called without check=True.",
+  "labels": [
+    {
+      "file": "app/runner.py",
+      "line": 4,
+      "rule": "error.unchecked-subprocess",
+      "message": "subprocess result is unchecked"
+    }
+  ]
+}

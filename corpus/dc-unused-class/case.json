@@ -1,0 +1,14 @@
+{
+  "id": "dc-unused-class",
+  "category": "dead-code",
+  "defect": true,
+  "description": "A class is never referenced.",
+  "labels": [
+    {
+      "file": "app/model.py",
+      "line": 4,
+      "rule": "dead.unused-class",
+      "message": "Orphan is never referenced"
+    }
+  ]
+}

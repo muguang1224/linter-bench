@@ -1,0 +1,7 @@
+{
+  "id": "sec-clean-env",
+  "category": "security",
+  "defect": false,
+  "description": "The secret comes from the environment; this must not be flagged.",
+  "labels": []
+}

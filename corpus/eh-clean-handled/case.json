@@ -1,0 +1,7 @@
+{
+  "id": "eh-clean-handled",
+  "category": "error-handling",
+  "defect": false,
+  "description": "The exception is chained into a meaningful error; this must not be flagged.",
+  "labels": []
+}

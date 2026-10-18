@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.11", "3.12", "3.13", "3.14"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Unit tests
+        run: python -m unittest discover -s tests -v
+      - name: Validate corpus
+        run: python linter_bench.py --validate
+      - name: Reference control
+        run: python linter_bench.py --tools tools.reference.json --fail-under-recall 1.0
+
+  controls:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Both controls are reproducible
+        run: python linter_bench.py --tools tools.controls.json --json > controls.json
+      - name: Negative control must not score 1.0
+        run: |
+          python - <<'PY'
+          import json
+          data = json.load(open("controls.json"))
+          scores = {tool["name"]: tool["f1"] for tool in data["tools"]}
+          assert scores["reference"] == 1.0, scores
+          assert scores["naive"] is not None and scores["naive"] < 1.0, scores
+          PY

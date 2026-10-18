@@ -1,0 +1,7 @@
+{
+  "id": "sec-clean-log",
+  "category": "security",
+  "defect": false,
+  "description": "A log message mentions a token without containing one; this must not be flagged.",
+  "labels": []
+}

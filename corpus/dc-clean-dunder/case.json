@@ -1,0 +1,7 @@
+{
+  "id": "dc-clean-dunder",
+  "category": "dead-code",
+  "defect": false,
+  "description": "Dunder methods are called implicitly and must not be flagged.",
+  "labels": []
+}

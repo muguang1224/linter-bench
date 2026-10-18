@@ -1,0 +1,14 @@
+{
+  "id": "dc-unused-function",
+  "category": "dead-code",
+  "defect": true,
+  "description": "A module-level function is never referenced by production code or tests.",
+  "labels": [
+    {
+      "file": "app/core.py",
+      "line": 4,
+      "rule": "dead.unused-function",
+      "message": "helper is never referenced"
+    }
+  ]
+}

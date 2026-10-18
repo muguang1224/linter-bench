@@ -1,0 +1,13 @@
+{
+  "tools": [
+    {
+      "name": "reference",
+      "command": ["{python}", "{bench}/reference_detector.py", "{case}"],
+      "adapter": "json",
+      "categories": ["*"],
+      "match": "rule",
+      "timeout": 20,
+      "stream": "stdout"
+    }
+  ]
+}

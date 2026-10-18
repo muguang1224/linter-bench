@@ -1,0 +1,14 @@
+{
+  "id": "tq-self-compare",
+  "category": "test-quality",
+  "defect": true,
+  "description": "A value is compared with itself.",
+  "labels": [
+    {
+      "file": "tests/test_math.py",
+      "line": 3,
+      "rule": "test.self-compare",
+      "message": "value == value"
+    }
+  ]
+}

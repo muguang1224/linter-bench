@@ -1,0 +1,14 @@
+{
+  "id": "tq-skip-no-reason",
+  "category": "test-quality",
+  "defect": true,
+  "description": "A test is skipped without a reason.",
+  "labels": [
+    {
+      "file": "tests/test_skip.py",
+      "line": 4,
+      "rule": "test.skip-no-reason",
+      "message": "unittest.skip without a reason"
+    }
+  ]
+}

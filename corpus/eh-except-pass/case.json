@@ -1,0 +1,14 @@
+{
+  "id": "eh-except-pass",
+  "category": "error-handling",
+  "defect": true,
+  "description": "An OSError is swallowed by a bare pass.",
+  "labels": [
+    {
+      "file": "app/loader.py",
+      "line": 5,
+      "rule": "error.except-pass",
+      "message": "exception is swallowed"
+    }
+  ]
+}

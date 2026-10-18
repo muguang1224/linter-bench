@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-label="linter-bench">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1220"/>
+      <stop offset="1" stop-color="#131a2e"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#a78bfa"/>
+      <stop offset="1" stop-color="#38bdf8"/>
+    </linearGradient>
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#1e293b" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="300" fill="url(#bg)"/>
+  <rect width="1200" height="300" fill="url(#grid)" opacity="0.55"/>
+  <rect x="0" y="0" width="8" height="300" fill="url(#accent)"/>
+
+  <text x="72" y="118" fill="#f8fafc" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="64" font-weight="700" letter-spacing="-2">linter-bench</text>
+  <text x="74" y="164" fill="#94a3b8" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="22">precision and recall, on the record</text>
+  <text x="74" y="214" fill="#64748b" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">20 labeled cases · adapters · zero dependencies · Python 3.10–3.14</text>
+
+  <g transform="translate(780 52)">
+    <rect x="0" y="0" width="348" height="196" rx="16" fill="#0f172a" stroke="#1e293b"/>
+    <text x="22" y="32" fill="#64748b" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">results</text>
+    <text x="22" y="62" fill="#64748b" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11">TOOL</text>
+    <text x="132" y="62" fill="#64748b" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11">PRECISION</text>
+    <text x="232" y="62" fill="#64748b" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11">RECALL</text>
+
+    <text x="22" y="92" fill="#e2e8f0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14">reference</text>
+    <rect x="132" y="80" width="76" height="12" rx="6" fill="#1e293b"/>
+    <rect x="132" y="80" width="76" height="12" rx="6" fill="#34d399"/>
+    <rect x="232" y="80" width="76" height="12" rx="6" fill="#1e293b"/>
+    <rect x="232" y="80" width="76" height="12" rx="6" fill="#34d399"/>
+
+    <text x="22" y="126" fill="#e2e8f0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14">naive</text>
+    <rect x="132" y="114" width="76" height="12" rx="6" fill="#1e293b"/>
+    <rect x="132" y="114" width="44" height="12" rx="6" fill="#f59e0b"/>
+    <rect x="232" y="114" width="76" height="12" rx="6" fill="#1e293b"/>
+    <rect x="232" y="114" width="44" height="12" rx="6" fill="#f59e0b"/>
+
+    <text x="22" y="164" fill="#475569" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">14 labeled defects · 7 clean cases</text>
+    <text x="22" y="182" fill="#475569" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">both controls, reproducible</text>
+  </g>
+</svg>

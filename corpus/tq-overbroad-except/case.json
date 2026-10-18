@@ -1,0 +1,14 @@
+{
+  "id": "tq-overbroad-except",
+  "category": "test-quality",
+  "defect": true,
+  "description": "A test catches every exception, including assertion failures.",
+  "labels": [
+    {
+      "file": "tests/test_overbroad.py",
+      "line": 7,
+      "rule": "test.overbroad-except",
+      "message": "except Exception in a test"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "id": "tq-swallowed-assert",
+  "category": "test-quality",
+  "defect": true,
+  "description": "An AssertionError is caught and discarded by the test itself.",
+  "labels": [
+    {
+      "file": "tests/test_swallow.py",
+      "line": 3,
+      "rule": "test.swallowed-assert",
+      "message": "assertion is swallowed"
+    }
+  ]
+}

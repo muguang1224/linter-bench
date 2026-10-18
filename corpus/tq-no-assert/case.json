@@ -1,0 +1,14 @@
+{
+  "id": "tq-no-assert",
+  "category": "test-quality",
+  "defect": true,
+  "description": "A test calls production code but never asserts anything.",
+  "labels": [
+    {
+      "file": "tests/test_calc.py",
+      "line": 3,
+      "rule": "test.no-assert",
+      "message": "test has no assertion"
+    }
+  ]
+}

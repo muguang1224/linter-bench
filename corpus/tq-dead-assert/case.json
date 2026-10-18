@@ -1,0 +1,14 @@
+{
+  "id": "tq-dead-assert",
+  "category": "test-quality",
+  "defect": true,
+  "description": "An assertion after return is never executed.",
+  "labels": [
+    {
+      "file": "tests/test_dead.py",
+      "line": 3,
+      "rule": "test.dead-assert",
+      "message": "assert after return"
+    }
+  ]
+}

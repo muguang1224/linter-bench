@@ -1,0 +1,7 @@
+{
+  "id": "eh-clean-subprocess",
+  "category": "error-handling",
+  "defect": false,
+  "description": "subprocess.run uses check=True; this must not be flagged.",
+  "labels": []
+}

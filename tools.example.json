@@ -1,0 +1,49 @@
+{
+  "tools": [
+    {
+      "name": "ruff",
+      "command": ["ruff", "check", "--output-format", "json", "."],
+      "adapter": "ruff",
+      "categories": ["dead-code", "error-handling", "security"],
+      "match": "location",
+      "ignore_paths": ["tests/*"],
+      "timeout": 60
+    },
+    {
+      "name": "semgrep",
+      "command": ["semgrep", "--json", "--quiet", "--config", "auto", "."],
+      "adapter": "semgrep",
+      "categories": ["security", "error-handling"],
+      "match": "location",
+      "ignore_paths": ["tests/*"],
+      "timeout": 120
+    },
+    {
+      "name": "bandit",
+      "command": ["bandit", "-q", "-r", ".", "-f", "json"],
+      "adapter": "bandit",
+      "categories": ["security", "error-handling"],
+      "match": "location",
+      "ignore_paths": ["tests/*"],
+      "ignore_rules": ["B101", "B404", "B603", "B607"],
+      "timeout": 60,
+      "ok_exit_codes": [0, 1]
+    },
+    {
+      "name": "weak-assert",
+      "command": ["{python}", "{bench}/../weak-assert/weak_assert.py", "{case}"],
+      "adapter": "text",
+      "categories": ["test-quality"],
+      "match": "location",
+      "timeout": 60
+    },
+    {
+      "name": "test-blindspot",
+      "command": ["{python}", "{bench}/../test-blindspot/test_blindspot.py", "{case}"],
+      "adapter": "text",
+      "categories": ["dead-code"],
+      "match": "location",
+      "timeout": 60
+    }
+  ]
+}

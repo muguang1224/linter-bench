@@ -1,0 +1,22 @@
+{
+  "tools": [
+    {
+      "name": "reference",
+      "command": ["{python}", "{bench}/reference_detector.py", "{case}"],
+      "adapter": "json",
+      "categories": ["*"],
+      "match": "rule",
+      "timeout": 20,
+      "stream": "stdout"
+    },
+    {
+      "name": "naive",
+      "command": ["{python}", "{bench}/naive_detector.py", "{case}"],
+      "adapter": "json",
+      "categories": ["test-quality"],
+      "match": "location",
+      "timeout": 20,
+      "stream": "stdout"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "sec-hardcoded-password",
+  "category": "security",
+  "defect": true,
+  "description": "Two credentials are hard-coded.",
+  "labels": [
+    {
+      "file": "app/config.py",
+      "line": 1,
+      "rule": "security.hardcoded-secret",
+      "message": "hard-coded DB password"
+    },
+    {
+      "file": "app/config.py",
+      "line": 2,
+      "rule": "security.hardcoded-secret",
+      "message": "hard-coded API key"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "id": "tq-clean-mock",
+  "category": "test-quality",
+  "defect": false,
+  "description": "A mock assertion counts as an assertion; this must not be flagged.",
+  "labels": []
+}

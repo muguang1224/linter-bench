@@ -1,0 +1,14 @@
+{
+  "id": "tq-constant-assert",
+  "category": "test-quality",
+  "defect": true,
+  "description": "An assertion on a constant can never fail.",
+  "labels": [
+    {
+      "file": "tests/test_flags.py",
+      "line": 2,
+      "rule": "test.constant-assert",
+      "message": "assert True"
+    }
+  ]
+}

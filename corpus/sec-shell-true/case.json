@@ -1,0 +1,14 @@
+{
+  "id": "sec-shell-true",
+  "category": "security",
+  "defect": true,
+  "description": "subprocess.run uses shell=True.",
+  "labels": [
+    {
+      "file": "app/shell.py",
+      "line": 4,
+      "rule": "security.shell-true",
+      "message": "shell=True"
+    }
+  ]
+}
